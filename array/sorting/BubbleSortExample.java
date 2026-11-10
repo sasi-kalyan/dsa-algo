@@ -21,10 +21,34 @@ public class BubbleSortExample {
         return arr;
     }
 
+    public static int[] bubbleSort2(int[] arr, int n){
+
+        int st = 0, ed = n-1;
+
+        while(st < ed){
+
+            int lastSwap = st;
+
+            for(int i = st; i<ed; i++){
+                if(arr[i] > arr[i+1]){
+                    int temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+
+                    lastSwap = i;
+                }
+            }
+
+            ed = lastSwap;
+        }
+
+        return arr;
+    }
+
     public static void main(String[] args) {
         int[] arr = {1, 4, 7, 3, 9, 2, 6, 8};
 
-        arr = bubbleSort(arr, arr.length);
+        arr = bubbleSort2(arr, arr.length);
         for(int i = 0; i < arr.length; i++){
             System.out.print( arr[i] + " ");
         }

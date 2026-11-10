@@ -7,9 +7,10 @@ public class SelectionSortExample {
         if(arr.length == 0) return arr;
 
         for(int i = 0; i < n; i++){
+
             int minIndex = i;
 
-            for(int j = i; j < n; j++){
+            for(int j = i + 1; j < n; j++){
 
                 if(arr[minIndex] > arr[j]){
                     minIndex = j;
