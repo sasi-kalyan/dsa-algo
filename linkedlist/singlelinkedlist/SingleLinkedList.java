@@ -156,8 +156,50 @@ public class SingleLinkedList {
         return count;
     }
 
+    /*
+        reverse: method that reverse the linked-list
+     */
+    public static void reverse(){
+
+        Node prev = null, curr = head, temp = null;
+
+        while(curr != null){
+            temp = curr;
+            curr = curr.next;
+            temp.next = prev;
+            prev = temp;
+        }
+
+        head = prev;
+    }
+
+    public static void findMiddleNode(){
+
+        Node fast = head, slow = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        System.out.println("middle node: "+slow.data);
+    }
+
+    public static void removeDuplicates(){
+
+        Node curr = head;
+        while(curr != null && curr.next !=null){
+            if(curr.data == curr.next.data){
+                curr.next = curr.next.next;
+            }else{
+                curr = curr.next;
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
+        /*
         //add elements at last
         addLast(10);
         addLast(20);
@@ -188,6 +230,31 @@ public class SingleLinkedList {
 
         //count of nodes in linked-lists
         System.out.println("COUNT OF NODES IN SINGLE LINKED LIST - " + count());
+
+        //reverse the linked-lists
+
+        reverse();
+        print();
+
+        //find middle node
+        findMiddleNode();
+
+         */
+
+        addLast(10);
+        addLast(20);
+        addLast(20);
+        addLast(40);
+        addLast(40);
+        addLast(50);
+        addLast(60);
+
+        System.out.println("before duplicates");
+        print();
+
+        removeDuplicates();
+        System.out.println("after removal of duplicates");
+        print();
 
     }
 
